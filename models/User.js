@@ -17,7 +17,7 @@ const userSchema=mongoose.Schema({
         password:{
              type:String,
             trim:true,
-            
+        
         }
 
 },{timestamps:true})

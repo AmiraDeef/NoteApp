@@ -3,7 +3,7 @@ const express=require('express');
 const   mongoose  = require('mongoose');
 const app=express();
 app.use(express.json());
-
+const authRoute=require('./routes/authRoute')
 
 //port
 const port =process.env.PORT
@@ -22,7 +22,7 @@ async function dbConnection() {
 };
 dbConnection();
 
-
+app.use('/',authRoute);
 
 
 //run server
