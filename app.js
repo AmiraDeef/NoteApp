@@ -4,7 +4,7 @@ const   mongoose  = require('mongoose');
 const app=express();
 app.use(express.json());
 const authRoute=require('./routes/authRoute')
-
+const noteRoutes=require('./routes/noteRoute')
 //port
 const port =process.env.PORT
 
@@ -23,7 +23,7 @@ async function dbConnection() {
 dbConnection();
 
 app.use('/',authRoute);
-
+app.use('/',noteRoutes)
 
 //run server
 app.listen(port,()=>{
