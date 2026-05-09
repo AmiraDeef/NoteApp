@@ -24,7 +24,8 @@ dbConnection();
 
 app.use('/',authRoute);
 app.use('/',noteRoutes)
-
+const errorMiddle=require('./middleware/errorHandellerMiddleware')
+app.use(errorMiddle)
 //run server
 app.listen(port,()=>{
     console.log("server run ...");

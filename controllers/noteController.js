@@ -14,9 +14,7 @@ const getAllNotes = async (req, res) => {
             notes: existingNotes
         })
     } catch (error) {
-        return res.status(500).json({
-            msg: "server error"
-        })
+       next(error)
     }
 }
 const getNoteById = async (req, res) => {
@@ -68,11 +66,7 @@ const addNote = async (req, res) => {
 
 
     } catch (error) {console.error(error);
-        return res.status(500).json({
-            
-            
-            msg: "server error"
-        })
+      next(error)
     }
 }
 
