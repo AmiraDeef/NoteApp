@@ -28,6 +28,10 @@ const noteSchema=new mongoose.Schema({
        trim:true,
        lowercase:true
     }
+    ,image:{
+        type:String,
+        
+    }
     ,user:{
         type:mongoose.Schema.Types.ObjectId,
         ref: 'User',

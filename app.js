@@ -7,7 +7,7 @@ const authRoute=require('./routes/authRoute')
 const noteRoutes=require('./routes/noteRoute')
 //port
 const port =process.env.PORT
-
+const path = require('path');
 //bd connection 
 async function dbConnection() {
     try{
@@ -24,6 +24,7 @@ dbConnection();
 
 app.use('/',authRoute);
 app.use('/',noteRoutes)
+app.use('/uploads',express.static(path.join(__dirname,'uploads')));
 const errorMiddle=require('./middleware/errorHandellerMiddleware')
 app.use(errorMiddle)
 //run server

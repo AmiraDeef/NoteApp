@@ -3,6 +3,7 @@ const { noteSchema } = require('./validation/noteValidation')
 
 const getAllNotes = async (req, res) => {
     try {
+        
         const userId = req.user
         const existingNotes = await Note.find({ user: userId })
         if (!existingNotes) {
@@ -41,6 +42,8 @@ const getNoteById = async (req, res) => {
 }
 const addNote = async (req, res) => {
     try {
+        console.log(req.file);
+
         const { error, value } = noteSchema.validate(req.body, {
             abortEarly: false,
             stripUnknown: true
@@ -54,6 +57,8 @@ const addNote = async (req, res) => {
 
         const { title,description } = value
         const note=await Note.findOne({title})
+        console.log(description);
+        
         if(note){
             return res.status(400).json({
             msg: "title must be unique",
