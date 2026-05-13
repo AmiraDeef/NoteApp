@@ -94,7 +94,7 @@ const logout = async (req, res) => {
         })
     } catch (error) {
         return res.status(500).json({
-            msg: "server error"
+            msg: "server error  "
         })
     }
 }
