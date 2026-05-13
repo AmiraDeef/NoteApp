@@ -90,7 +90,7 @@ const login = async (req, res) => {
 const logout = async (req, res) => {
     try {
  return res.status(200).json({
-            msg: " logout success",token
+            msg: "logout success ",token
         })
     } catch (error) {
         return res.status(500).json({
